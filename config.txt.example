@@ -1,0 +1,134 @@
+"Server Configs"
+{
+	"Matcha"
+	{
+		"Matcha 6s 5CP"
+		{
+			"path"			"comp/matcha/matcha_5cp.cfg"
+		}
+		
+		"Matcha 6s KOTH"
+		{
+			"path"			"comp/matcha/matcha_6s_koth.cfg"
+		}
+	}
+	
+	"AsiaFortress"
+	{
+		"AsiaFortress 6s 5CP"
+		{
+			"path"			"comp/afc/afc21/rgl_6s_5cp_match_pro.cfg"
+		}
+		
+		"AsiaFortress 6s KOTH"
+		{
+			"path"			"comp/afc/afc21/rgl_6s_koth_pro.cfg"
+		}
+		
+		"AsiaFortress HL Stopwatch"
+		{
+			"path"			"comp/afc/afchl/afchl_stopwatch.cfg"
+		}
+		
+		"AsiaFortress HL KOTH"
+		{
+			"path"			"comp/afc/afchl/afchl_koth.cfg"
+		}
+	}
+	
+	"ozfortress"
+	{
+		"ozfortress 6s 5CP"
+		{
+			"path"			"comp/ozf/6s/ozfortress_6v6_5cp.cfg"
+		}
+		
+		"ozfortress 6s KOTH"
+		{
+			"path"			"comp/ozf/6s/ozfortress_6v6_koth.cfg"
+		}
+		
+		"ozfortress 6s Golden Cap"
+		{
+			"path"			"comp/ozf/6s/ozfortress_6v6_golden_cap.cfg"
+		}
+		
+		"ozfortress 6s SCRIM"
+		{
+			"path"			"comp/ozf/6s/ozfortress_6v6_scrim.cfg"
+		}
+		
+		"ozfortress 6s SCRIM_30"
+		{
+			"path"			"comp/ozf/6s/ozfortress_6v6_scrim30.cfg"
+		}
+		
+		"ozfortress 6s PUG"
+		{
+			"path"			"comp/ozf/6s/ozfortress_6v6_PUG.cfg"
+		}
+		
+		"ozfortress HL Stopwatch"
+		{
+			"path"			"comp/ozf/hl/ozfortress_hl_stopwatch.cfg"
+		}
+		
+		"ozfortress HL KOTH"
+		{
+			"path"			"comp/ozf/hl/ozfortress_hl_koth.cfg"
+		}
+		
+		"ozfortress HL 5CP"
+		{
+			"path"			"comp/ozf/hl/ozfortress_hl_5cp.cfg"
+		}
+		
+		"ozfortress HL SCRIM"
+		{
+			"path"			"comp/ozf/hl/ozfortress_hl_scrim.cfg"
+		}
+		
+		"ozfortress HL EC Stopwatch"
+		{
+			"path"			"comp/ozf/others/ozfortress_ec_stopwatch.cfg"
+		}
+		
+		"ozfortress HL EC KOTH"
+		{
+			"path"			"comp/ozf/others/ozfortress_ec_koth.cfg"
+		}
+		
+		"ozfortress 4s 5CP"
+		{
+			"path"			"comp/ozf/4s/ozfortress_4v4_5cp.cfg"
+		}
+		
+		"ozfortress 4s KOTH"
+		{
+			"path"			"comp/ozf/4s/ozfortress_4v4_koth.cfg"
+		}
+		
+		"ozfortress bball"
+		{
+			"path"			"comp/ozf/others/ozfortress_bball.cfg"
+		}
+		
+		"ozfortress Ultiduo"
+		{
+			"path"			"comp/ozf/others/ozfortress_ultiduo.cfg"
+		}
+	}
+	
+	"Others"
+	{
+		"UGC Ultiduo"
+		{
+			"path"			"comp/ugc/ugc_ud_ultiduo.cfg"
+		}
+		
+		"RGL 4s PassTime"
+		{
+			"path"			"comp/passtime/rgl_pt_push.cfg"
+		}
+	}
+}
