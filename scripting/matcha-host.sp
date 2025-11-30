@@ -195,22 +195,27 @@ public int MenuHandler_MainMenu(Menu menu, MenuAction action, int client, int se
 void AddPlayersToMenu(Menu menu, ArrayList excludedClients) {
     char clientNameBuffer[32]; // limits to 32 for the menu size
     char clientBuffer[3]; // shouldnt exceed 3 digits
+
     for (int client = 1; client <= MaxClients; client++) {
         // Check if client is in excludedClients
         bool excluded = false;
         for (int i = 0; i < excludedClients.Length; i++) {
             if (client == excludedClients.Get(i)) {
                 excluded = true;
-                break;
             }
         }
 
-        if (excluded) continue; // skip
         if (!IsRealPlayer2(client)) continue;
 
         GetClientName(client, clientNameBuffer, sizeof(clientNameBuffer));
         IntToString(client, clientBuffer, sizeof(clientBuffer));
-        menu.AddItem(clientBuffer, clientNameBuffer);
+
+        if (excluded) {
+            menu.AddItem(clientBuffer, clientNameBuffer, ITEMDRAW_DISABLED); // disabled but still draws
+            continue;
+        }
+
+        menu.AddItem(clientBuffer, clientNameBuffer); 
     }  
 }
 
