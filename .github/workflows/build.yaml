@@ -1,0 +1,43 @@
+name: Build and commit
+
+on:
+  push:
+    paths:
+      - '**.sp'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup SourcePawn Compiler
+        uses: rumblefrog/setup-sp@master
+        with:
+            version: "1.11.x"
+
+      - name: Compile plugins
+        run: |
+            mkdir -p plugins
+            cd ./scripting
+            pwd
+            spcomp -i"./include/" matcha-host.sp -o ../plugins/matcha-host.smx
+            ls -la
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add plugins/
+          if ! git diff --cached --exit-code; then
+            git commit -m "Compile sourcepawn"
+          else
+            echo "No changes to commit"
+          fi
+      - name: Push changes
+        run: |
+          git push
