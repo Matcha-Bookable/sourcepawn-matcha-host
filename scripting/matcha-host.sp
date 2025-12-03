@@ -95,7 +95,7 @@ public void OnClientAuthorized(int client, const char[] auth) {
 
 public void OnClientPutInServer(int client) {
     // Make sure its a real player
-    if (!IsRealPlayer(client) && !IsRealPlayer2(client)) {
+    if (!IsRealPlayer(client)) {
         return;
     }
 
@@ -125,7 +125,7 @@ public void Timer_HostIntroduction(Handle timer, int client) {
 }
 
 public Action Command_Host(int client, int args) {
-    if (!IsRealPlayer(client) && !IsRealPlayer2(client)) { // Make sure the client is legit
+    if (!IsRealPlayer(client)) { // Make sure the client is legit
         ReplyToCommand(client, "[SM] Unknown client");
         return Plugin_Handled;
     } 
@@ -197,6 +197,8 @@ void AddPlayersToMenu(Menu menu, ArrayList excludedClients) {
     char clientBuffer[3]; // shouldnt exceed 3 digits
 
     for (int client = 1; client <= MaxClients; client++) {
+        if (!IsRealPlayer2(client)) continue;
+
         // Check if client is in excludedClients
         bool excluded = false;
         for (int i = 0; i < excludedClients.Length; i++) {
@@ -204,8 +206,6 @@ void AddPlayersToMenu(Menu menu, ArrayList excludedClients) {
                 excluded = true;
             }
         }
-
-        if (!IsRealPlayer2(client)) continue;
 
         GetClientName(client, clientNameBuffer, sizeof(clientNameBuffer));
         IntToString(client, clientBuffer, sizeof(clientBuffer));
@@ -303,7 +303,7 @@ public int MenuHandler_Host(Menu menu, MenuAction action, int client, int select
             menu.GetItem(selection, info, sizeof(info), _, name, sizeof(name));
             target = StringToInt(info);
 
-            if (target == 0) { // target no longer exist
+            if (!(IsRealPlayer(target))) { // target no longer exist
                 MC_PrintToChat(client, "{red}[Matcha]{default} Target is not available");
             }
             else {
@@ -366,7 +366,7 @@ public int MenuHandler_Ban(Menu menu, MenuAction action, int client, int selecti
             menu.GetItem(selection, info, sizeof(info), _, name, sizeof(name));
             target = StringToInt(info);
 
-            if (target == 0) { // target no longer exist
+            if (!(IsRealPlayer(target))) { // target no longer exist
                 MC_PrintToChat(client, "{red}[Matcha]{default} Target is not available");
             }
             else {
@@ -428,7 +428,7 @@ public int MenuHandler_Kick(Menu menu, MenuAction action, int client, int select
             menu.GetItem(selection, info, sizeof(info), _, name, sizeof(name));
             target = StringToInt(info);
 
-            if (target == 0) { // target no longer exist
+            if (!(IsRealPlayer(target))) { // target no longer exist
                 MC_PrintToChat(client, "{red}[Matcha]{default} Target is not available");
             }
             else {
