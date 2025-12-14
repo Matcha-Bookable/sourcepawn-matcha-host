@@ -325,14 +325,13 @@ public int MenuHandler_Host(Menu menu, MenuAction action, int client, int select
                 case(MenuCancel_ExitBack):
                 {
                     ShowHostMenu(client);
-                    delete menu;
-                }
-                default:
-                {
-                    delete menu;
                 }
             }
 		}
+        case(MenuAction_End):
+        {
+            delete menu;
+        }
     }
 
 	return 0;
@@ -387,14 +386,13 @@ public int MenuHandler_Ban(Menu menu, MenuAction action, int client, int selecti
                 case(MenuCancel_ExitBack):
                 {
                     ShowHostMenu(client);
-                    delete menu;
-                }
-                default:
-                {
-                    delete menu;
                 }
             }
 		}
+        case(MenuAction_End):
+        {
+            delete menu;
+        }
     }
 
 	return 0;
@@ -441,14 +439,13 @@ public int MenuHandler_Kick(Menu menu, MenuAction action, int client, int select
                 case(MenuCancel_ExitBack):
                 {
                     ShowHostMenu(client);
-                    delete menu;
-                }
-                default:
-                {
-                    delete menu;
                 }
             }
 		}
+        case(MenuAction_End):
+        {
+            delete menu;
+        }
     }
 
 	return 0;
@@ -459,8 +456,7 @@ public int MenuHandler_Kick(Menu menu, MenuAction action, int client, int select
 */
 
 void Tools_ChangeMap(int client) {
-    ArrayList MapList = new ArrayList();
-    MapList = CreateArray(MAX_NAME_LENGTH);
+    ArrayList MapList = new ArrayList(MAX_NAME_LENGTH);
     ReadFullMaplist(MapList, "cfg/comp/maps.txt");
 
     Menu menu = new Menu(MenuHandler_ChangeMap);
@@ -468,9 +464,8 @@ void Tools_ChangeMap(int client) {
     menu.ExitBackButton = true;
 
     AddMapsToMenu(menu, MapList);
-    menu.Display(client, MENU_TIME_FOREVER);
-
     delete MapList; // garbage collection
+    menu.Display(client, MENU_TIME_FOREVER);
 }
 
 public int MenuHandler_ChangeMap(Menu menu, MenuAction action, int client, int selection)
@@ -490,14 +485,13 @@ public int MenuHandler_ChangeMap(Menu menu, MenuAction action, int client, int s
                 case(MenuCancel_ExitBack):
                 {
                     ShowHostMenu(client);
-                    delete menu;
-                }
-                default:
-                {
-                    delete menu;
                 }
             }
 		}
+        case(MenuAction_End):
+        {
+            delete menu;
+        }
     }
 
 	return 0;
@@ -537,14 +531,13 @@ public int MenuHandler_ChangeConfig(Menu menu, MenuAction action, int client, in
                 case(MenuCancel_ExitBack):
                 {
                     ShowHostMenu(client);
-                    delete menu;
-                }
-                default:
-                {
-                    delete menu;
                 }
             }
 		}
+        case(MenuAction_End):
+        {
+            delete menu;
+        }
     }
 
 	return 0;
@@ -596,13 +589,12 @@ public int MenuHandler_LeagueConfigs(Menu menu, MenuAction action, int client, i
                 case(MenuCancel_ExitBack):
                 {
                     Tools_ChangeConfig(client); // Go back to league selection
-                    delete menu;
-                }
-                default:
-                {
-                    delete menu;
                 }
             }
+        }
+        case(MenuAction_End):
+        {
+            delete menu;
         }
     }
 
